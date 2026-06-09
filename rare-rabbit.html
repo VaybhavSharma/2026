@@ -1,54 +1,1236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rare Rabbit — Brands That Matter</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Case for Fragrance / The House of Rare</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0A0A0A;
+    --white: #FFFFFF;
+    --off-white: #F9F7F4;
+    --light-grey: #EBEBEB;
+    --mid-grey: #999;
+    --dark-grey: #444;
+    --teal: #2E7D72;
+    --teal-light: #E8F3F1;
+    --olive: #5C6B3A;
+    --olive-light: #EFF2E8;
+    --mud: #7B5C3E;
+    --mud-light: #F2EDE8;
+    --gold: #C4A35A;
+    --serif: 'Playfair Display', Georgia, serif;
+    --serif-alt: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 48px 64px;
+    border-bottom: 1px solid var(--light-grey);
+  }
+  .brand-mark {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+  }
+  .doc-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    text-align: right;
+  }
+  .cover-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 64px;
+    position: relative;
+  }
+  .cover-eyebrow {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 32px;
+  }
+  .cover-headline {
+    font-family: var(--serif);
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 400;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    max-width: 700px;
+    margin-bottom: 48px;
+  }
+  .cover-headline em {
+    font-style: italic;
+    color: var(--dark-grey);
+  }
+  .cover-sub {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--dark-grey);
+    letter-spacing: 0.05em;
+    max-width: 480px;
+    line-height: 1.8;
+    border-left: 2px solid var(--teal);
+    padding-left: 20px;
+  }
+  .cover-accent-block {
+    position: absolute;
+    right: 64px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 260px;
+    border-top: 1px solid var(--light-grey);
+    padding-top: 24px;
+  }
+  .cover-accent-line {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    margin-bottom: 8px;
+  }
+  .cover-accent-stat {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .cover-accent-desc {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--mid-grey);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 32px 64px;
+    border-top: 1px solid var(--light-grey);
+  }
+  .cover-author {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dark-grey);
+  }
+  .cover-author span {
+    display: block;
+    font-size: 11px;
+    color: var(--dark-grey);
+    margin-top: 4px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  .cover-date {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--dark-grey);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  /* SECTION STRUCTURE */
+  .section {
+    padding: 96px 64px;
+    border-bottom: 1px solid var(--light-grey);
+    position: relative;
+  }
+  .section:nth-child(even) { background: #0A0A0A; color: var(--white); }
+  .section:nth-child(even) .body-copy { color: rgba(255,255,255,0.75); }
+  .section:nth-child(even) .section-label { color: rgba(255,255,255,0.4); }
+  .section:nth-child(even) .section-title { color: var(--white); }
+  .section:nth-child(even) .section-number { color: #333; }
+  .section:nth-child(even) .consumer-card { border-top-color: rgba(255,255,255,0.3); }
+  .section:nth-child(even) .consumer-card-label { color: rgba(255,255,255,0.4); }
+  .section:nth-child(even) .consumer-card-title { color: var(--white); }
+  .section:nth-child(even) .consumer-card-body { color: rgba(255,255,255,0.65); }
+  .section:nth-child(even) .fragrance-name { color: var(--white); }
+  .section:nth-child(even) .fragrance-tagline { color: rgba(255,255,255,0.5); }
+  .section:nth-child(even) .fragrance-desc { color: rgba(255,255,255,0.65); }
+  .section:nth-child(even) .fragrance-num { color: rgba(255,255,255,0.4); }
+  .section:nth-child(even) .fragrance-price { color: rgba(255,255,255,0.5); border-top-color: rgba(255,255,255,0.15); }
+  .section:nth-child(even) .fragrance-price strong { color: var(--white); }
+  .section:nth-child(even) .note-pill { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); }
+  .section:nth-child(even) .fragrance-grid { background: rgba(255,255,255,0.08); }
+  .section:nth-child(even) .fragrance-card { background: #111; }
+  .section:nth-child(even) .phase-timeline { color: var(--white); }
+  .section:nth-child(even) .phase-duration { color: rgba(255,255,255,0.5); }
+  .section:nth-child(even) .phase-name { color: var(--white); }
+  .section:nth-child(even) .phase-body { color: rgba(255,255,255,0.65); }
+  .section:nth-child(even) .gtm-phase { border-bottom-color: rgba(255,255,255,0.1); }
+  .section:nth-child(even) .cred-item { border-top-color: rgba(255,255,255,0.15); }
+  .section:nth-child(even) .cred-icon { color: var(--teal); }
+  .section:nth-child(even) .cred-title { color: var(--white); }
+  .section:nth-child(even) .cred-body { color: rgba(255,255,255,0.65); }
+  .section:nth-child(even) .pull-quote { color: rgba(255,255,255,0.85); border-left-color: var(--teal); }
+  .section:nth-child(even) .stat-card { background: #111; }
+  .section:nth-child(even) .stat-label { color: rgba(255,255,255,0.4); }
+  .section:nth-child(even) .stat-value { color: var(--white); }
+  .section:nth-child(even) .stat-desc { color: rgba(255,255,255,0.5); }
+  .section:nth-child(even) .stat-row { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.08); }
+  .section-header {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: 64px;
+  }
+  .section-number {
+    font-family: var(--serif);
+    font-size: 72px;
+    font-weight: 400;
+    color: var(--light-grey);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+  .section-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--black);
+    letter-spacing: -0.02em;
+  }
+  .section-title em { font-style: italic; }
+
+  /* BODY COPY */
+  .body-copy {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: #333;
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+  .body-copy + .body-copy { margin-top: 0; }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    font-family: var(--serif-alt);
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--black);
+    border-left: 3px solid var(--teal);
+    padding-left: 28px;
+    margin: 48px 0;
+    max-width: 680px;
+  }
+  .pull-quote.mud { border-left-color: var(--mud); }
+
+  /* STAT ROW */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--light-grey);
+    border: 1px solid var(--light-grey);
+    margin: 48px 0;
+  }
+  .stat-card {
+    background: var(--white);
+    padding: 32px 28px;
+  }
+  .stat-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    margin-bottom: 12px;
+  }
+  .stat-value {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-desc {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--mid-grey);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* CONSUMER GRID */
+  .consumer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin: 48px 0;
+  }
+  .consumer-card {
+    border-top: 2px solid var(--black);
+    padding-top: 24px;
+  }
+  .consumer-card-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    margin-bottom: 16px;
+  }
+  .consumer-card-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .consumer-card-body {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    color: #555;
+    line-height: 1.8;
+  }
+
+  /* TAGS */
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .tag {
+    font-family: var(--sans);
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+  }
+  .tag-t { background: var(--teal-light); color: var(--teal); }
+  .tag-m { background: var(--mud-light); color: var(--mud); }
+  .tag-o { background: var(--olive-light); color: var(--olive); }
+  .tag-g { border: 0.5px solid var(--light-grey); color: var(--mid-grey); }
+
+  /* GAP TABLE */
+  .gap-table { width: 100%; border-collapse: collapse; margin: 48px 0; }
+  .gap-table th {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--light-grey);
+    font-weight: 400;
+  }
+  .gap-table td {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    padding: 18px 16px;
+    border-bottom: 1px solid var(--light-grey);
+    vertical-align: top;
+    line-height: 1.6;
+    color: #333;
+  }
+  .gap-table tr:last-child td { border-bottom: none; }
+  .gap-brand { font-weight: 500; color: var(--black); font-size: 13px; }
+  .gap-rare-row td { background: var(--teal-light); border-bottom: 1px solid #c0d9d6; }
+  .gap-rare-row .gap-brand { color: var(--teal); }
+
+  /* WHY LIST */
+  .why-list { display: flex; flex-direction: column; margin-top: 32px; }
+  .why-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--light-grey);
+  }
+  .why-dot {
+    width: 5px; height: 5px;
+    background: var(--teal);
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .why-txt {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: #555;
+  }
+
+  /* FRAGRANCE GRID */
+  .fragrance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--light-grey);
+    margin: 48px 0;
+  }
+  .fragrance-card {
+    background: var(--white);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .fragrance-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .fc-1::before { background: var(--teal); }
+  .fc-2::before { background: var(--mud); }
+  .fc-3::before { background: #0A0A0A; }
+  .fc-4::before { background: var(--olive); }
+  .fragrance-num {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    margin-bottom: 16px;
+  }
+  .fragrance-name {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    color: var(--black);
+  }
+  .fragrance-name em { font-style: italic; color: var(--dark-grey); }
+  .fragrance-tagline {
+    font-family: var(--serif-alt);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--mid-grey);
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+  .fragrance-desc {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: #555;
+    margin-bottom: 24px;
+  }
+  .scent-notes { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+  .note-pill {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 0.5px solid var(--light-grey);
+    color: var(--dark-grey);
+    font-weight: 400;
+  }
+  .fragrance-price {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    padding-top: 20px;
+    border-top: 1px solid var(--light-grey);
+  }
+  .fragrance-price strong { color: var(--black); font-weight: 500; }
+
+  /* GTM PHASES */
+  .gtm-phases { margin: 48px 0; }
+  .gtm-phase {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--light-grey);
+  }
+  .gtm-phase:last-child { border-bottom: none; }
+  .phase-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin-bottom: 10px;
+  }
+  .phase-1 .phase-tag { background: var(--teal-light); color: var(--teal); }
+  .phase-2 .phase-tag { background: var(--mud-light); color: var(--mud); }
+  .phase-3 .phase-tag { background: var(--olive-light); color: var(--olive); }
+  .phase-4 .phase-tag { background: #F9F5EC; color: var(--gold); }
+  .phase-timeline {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .phase-duration {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--mid-grey);
+    letter-spacing: 0.1em;
+  }
+  .phase-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .phase-body {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  /* CREDENTIALS */
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin: 48px 0;
+  }
+  .cred-item {
+    border-top: 1px solid var(--light-grey);
+    padding-top: 20px;
+  }
+  .cred-icon {
+    font-family: var(--serif);
+    font-size: 28px;
+    color: var(--teal);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .cred-title {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 10px;
+  }
+  .cred-body {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: #666;
+  }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--teal-light);
+    border-left: 3px solid var(--teal);
+    padding: 24px 28px;
+    margin: 32px 0;
+    max-width: 640px;
+  }
+  .callout-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .callout-body {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 300;
+    color: #2a5c56;
+    line-height: 1.75;
+  }
+
+  /* CLOSING */
+  .closing {
+    padding: 96px 64px;
+    background: var(--black);
+    color: var(--white);
+  }
+  .closing-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 32px;
+  }
+  .closing-headline {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    max-width: 700px;
+    margin-bottom: 48px;
+  }
+  .closing-headline em { font-style: italic; color: rgba(255,255,255,0.6); }
+  .closing-contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    max-width: 560px;
+  }
+  .contact-label {
+    font-family: var(--sans);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 8px;
+  }
+  .contact-value {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 300;
+  }
+
+  @media print {
+    .section { page-break-inside: avoid; }
+    .cover { page-break-after: always; min-height: unset; }
+  }
+  @media (max-width: 768px) {
+    .cover-top, .cover-body, .cover-bottom { padding: 32px 28px; }
+    .section { padding: 64px 28px; }
+    .section-header { grid-template-columns: 1fr; gap: 12px; }
+    .section-number { font-size: 48px; }
+    .stat-row, .consumer-grid, .fragrance-grid, .credentials-grid { grid-template-columns: 1fr; }
+    .cover-accent-block { display: none; }
+    .gtm-phase { grid-template-columns: 1fr; gap: 16px; }
+    .closing { padding: 64px 28px; }
+    .closing-contact { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
-  <header class="site-header">
-    <nav>
-      <a href="index.html" class="nav-logo">VS</a>
-      <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="mailto:vaibhav@imle.in">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-
-    <section class="page-hero">
-      <div class="container">
-        <a href="brands.html" class="breadcrumb">← Brands That Matter</a>
-        <p class="section-label" style="margin-top: 1.5rem;">Brand</p>
-        <h1 class="page-title">Rare Rabbit</h1>
-        <p class="page-sub">Content coming soon.</p>
-      </div>
-    </section>
-
-    <section class="placeholder-section">
-      <div class="container">
-        <a href="brands.html" class="cta-link">← Back to Brands That Matter</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 Vaibhav Sharma · Ahmedabad</p>
-      <ul class="footer-links">
-        <li><a href="mailto:vaibhav@imle.in">Email</a></li>
-        <li><a href="https://linkedin.com/in/vaybhavsharma" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-top">
+    <div class="brand-mark">The House of Rare</div>
+    <div class="doc-label">Strategy Perspective<br>Rare Atelier / New Category Entry</div>
+  </div>
+  <div class="cover-body">
+    <div class="cover-eyebrow">A Perspective on What Comes Next</div>
+    <h1 class="cover-headline">Why <em>Rare</em><br>belongs on skin.</h1>
+    <p class="cover-sub">Rare Rabbit has built one of the most coveted wardrobes in Indian menswear. Now, it is time to give that man a confidence he can carry all along the day and leave an impression that lingers after he is gone.</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-author">
+      Vaibhav Sharma
+      <span>Brand Specialist &middot; 5+ years building India's first premium aromatic syrup brand</span>
+      <span>Masters in Business Strategy, Grenoble EM, France &middot; Advanced Certification, MICA</span>
     </div>
-  </footer>
+    <div class="cover-date">
+      June 2026<br>
+      For Nishant Poddar, CMO<br>
+      Rare Rabbit &middot; Alum, IIM Calcutta
+    </div>
+  </div>
+</section>
+
+
+<!-- 00: THE STORE VISIT -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-number">00</div>
+    <div class="section-title-block">
+      <div class="section-label">Field Notes</div>
+      <h2 class="section-title">Making the case for perfumes.<br><em>Observations from an in-store visit.</em></h2>
+    </div>
+  </div>
+
+  <p class="body-copy">Before building this document, I visited a Rare Rabbit store in Ahmedabad to make my observations on the latest store experience. What follows are honest field notes: what the brand is doing well, where the execution has gaps, and what it signals about where the biggest opportunity sits.</p>
+
+  <div class="consumer-grid" style="margin-top:48px">
+
+    <div class="consumer-card">
+      <div class="consumer-card-label">Observation 01</div>
+      <div class="consumer-card-title">The store smells delightful.</div>
+      <div class="consumer-card-body">The ambient scent in-store is genuinely pleasant and creates a feeling of class and luxury. This sets up the brand experience as a quiet luxury sensory experience while shoppers explore their interests. This experience is what can be transformed to a new category directly complementing the brand.</div>
+    </div>
+
+    <div class="consumer-card">
+      <div class="consumer-card-label">Observation 02</div>
+      <div class="consumer-card-title">Great products need definite customer journeys.</div>
+      <div class="consumer-card-body">Rare Rabbit stands out on its promise of great products: immaculate fabric, classic designs, beautiful packaging. However, when a customer comes in, they can sometimes get overwhelmed with what needs to be done. That is when a clear and intelligent customer journey navigation from the expected outcomes to right categories to right accessories to desired outcomes comes in place. Rare Rabbit products combined with a great in-store customer journey will improve the experience of the brand multifold.</div>
+    </div>
+
+    <div class="consumer-card">
+      <div class="consumer-card-label">Observation 03</div>
+      <div class="consumer-card-title">Accessories are sidelined.</div>
+      <div class="consumer-card-body">The wallets and belts were easy to miss: tucked away, not styled, not presented with the same intent as the apparel. The luggage sat near the store entrance with no clear sense of customer journey around it. These are categories that could meaningfully elevate the average transaction and reinforce the lifestyle positioning. A fragrance section near checkout, with its own dedicated space and visual identity, would do exactly what the accessories section currently does not: give the customer a deliberate reason to pause, consider, and add.</div>
+    </div>
+
+    <div class="consumer-card">
+      <div class="consumer-card-label">Observation 04</div>
+      <div class="consumer-card-title">The assortment sends mixed signals.</div>
+      <div class="consumer-card-body">The clean quiet luxury of the shirts and linens sits alongside print combinations that pull in a different direction entirely. The categorisation does not guide the customer through a coherent world. There is no felt sense of customer journey: no clear narrative from entry to exit, no moment of curation that makes a shopper feel like the store was designed for someone specific. For a brand with a strong visual identity in its campaigns, the in-store translation leaves something to be built.</div>
+    </div>
+
+    <div class="consumer-card" style="border-top-color:var(--teal);grid-column:1/-1">
+      <div class="consumer-card-label">The Signal</div>
+      <div class="consumer-card-title" style="color:var(--teal)">Fragrance elevates the store and the House of Rare.</div>
+      <div class="consumer-card-body">A fragrance line truly complements the brand ethos of the House of Rare. It signals class, luxury, quiet confidence and something that wears and lingers on a confident Indian male.<br><br>A perfume is one bottle, one story, one decision. It is the cleanest expression of what Rare Rabbit stands for: considered, deliberate, and built for a man with a point of view. In a store that subtly expresses class and exuberance, fragrance gives the brand a quiet anchor of premium intent that everything else can orient around.</div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- 01: WHY FRAGRANCE WHY NOW -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <div class="section-title-block">
+      <div class="section-label">Context</div>
+      <h2 class="section-title">Why fragrance.<br><em>Why now.</em></h2>
+    </div>
+  </div>
+  <p class="body-copy">Rare Rabbit has spent a decade building something genuinely rare: a menswear brand that Indian urban men are proud to wear, proud to reference, and proud to gift. The clothes carry an unmistakable point of view: composed, considered, quietly confident.</p>
+  <p class="body-copy">Now, the case is stronger than ever to give them an accessory that adds on to their quiet elegant confidence: perfumes and fragrance.</p>
+  <p class="body-copy">The Indian fine fragrance market is at an inflection point. Premium men's fragrance is growing at over 9.6% annually and no big Indian fashion brand has been able to totally own this space.</p>
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-label">India Perfume Market Size 2024</div>
+      <div class="stat-value">$2.35Bn</div>
+      <div class="stat-desc">Expected to reach $4.08Bn by 2030, growing at 9.6% CAGR<br><span style="font-size:10px;color:#aaa">Source: Grand View Research, 2026 &mdash; grandviewresearch.com</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Premium Segment Share 2025</div>
+      <div class="stat-value">58%</div>
+      <div class="stat-desc">Premium dominates with 58% market share, driven by aspirational demand and gifting culture<br><span style="font-size:10px;color:#aaa">Source: IMARC Group, 2025 &mdash; imarcgroup.com</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">India Premium Fragrance Market 2024</div>
+      <div class="stat-value">$2.17Bn</div>
+      <div class="stat-desc">Projected to reach $3.1Bn by 2033. Niche fragrances are the fastest growing segment.<br><span style="font-size:10px;color:#aaa">Source: Deep Market Insights, 2026 &mdash; deepmarketinsights.com</span></div>
+    </div>
+  </div>
+  <p class="body-copy">Internationally, every premium fashion house has a fragrance line. Ralph Lauren, Tom Ford, Giorgio Armani: fragrance often outperforms apparel in margin. The logic is identical for India's premium menswear moment.</p>
+  <p class="body-copy">The gap is not in the fragrance market but between Indian menswear and Indian fragrance: two categories growing in parallel, owned by the same man, with a brand that connects them and aligns with that man's identity.</p>
+</section>
+
+<!-- 02: THE CONSUMER -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-number">02</div>
+    <div class="section-title-block">
+      <div class="section-label">The Consumer</div>
+      <h2 class="section-title">The Rare Rabbit<br><em>man.</em></h2>
+    </div>
+  </div>
+  <p class="body-copy">He is 27 to 38. He works in consulting, design, product, or his own venture. He dresses with intention, not effort. He has outgrown mass-market fragrance but is unable to find his perfect fit for his Rare Rabbit quiet luxury outfits.</p>
+  <p class="body-copy">He wears imported brands that often feel too strong for his taste or too alien to his identity. Indian brands feel too feminine or not close to the international identity he aspires to. What he wants is a fragrance that he can wear with ease, confidence and calm. His hand reaches without a second thought after dressing up for a confident day.</p>
+  <p class="body-copy">He already trusts Rare Rabbit's sense of style. The brand now has the opportunity to carry something that is clean, distinctive, unmistakably his.</p>
+  <div class="consumer-grid" style="margin-top:48px">
+
+    <div style="border-top:3px solid rgba(255,255,255,0.3);padding-top:24px">
+      <div style="font-family:var(--sans);font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px">Who He Is</div>
+      <div style="font-family:var(--serif);font-size:26px;font-weight:400;font-style:italic;line-height:1.15;margin-bottom:20px;color:var(--white)">27-38, urban,<br>intentional.</div>
+      <div style="font-family:var(--sans);font-size:14px;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.85">Tier 1 metro. Income above 50K monthly. Brand-literate, not brand-obsessed. He chooses things for how they make him feel, not for the logo they carry.</div>
+    </div>
+
+    <div style="border-top:3px solid rgba(255,255,255,0.3);padding-top:24px">
+      <div style="font-family:var(--sans);font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px">Where He Is in Fragrance</div>
+      <div style="font-family:var(--serif);font-size:26px;font-weight:400;font-style:italic;line-height:1.15;margin-bottom:20px;color:var(--white)">Mass tires him.<br>Niche confuses him.</div>
+      <div style="font-family:var(--sans);font-size:14px;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.85;margin-top:24px">He has grown from mass brands like Titan Skinn and adopted several international brands yet he is confused and lost. This identity space is where Rare Rabbit lives in apparel. That same space is empty in fragrance.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 03: THE RANGE -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <div class="section-title-block">
+      <div class="section-label">Rare Atelier</div>
+      <h2 class="section-title">Rare Atelier.<br><em>Four fragrances, one collection.</em></h2>
+    </div>
+  </div>
+  <p class="body-copy">Rare Atelier is the fragrance line of The House of Rare. Each fragrance maps to a distinct emotional register of the Rare Rabbit man. Product names are in sync with the classic, luxury, comfortable, quiet and confident Indian man.</p>
+  <div class="fragrance-grid">
+
+    <div class="fragrance-card fc-1">
+      <div class="fragrance-num">01 / The Opening</div>
+      <div class="fragrance-name">First Impression</div>
+      <div class="fragrance-tagline">Eau de Toilette</div>
+      <div class="fragrance-desc">Clean, sharp, morning-confident. The olfactory equivalent of a well-pressed white shirt. The scent for the man who walks into a room and does not need to announce himself.<br><br>Entry fragrance. Volume driver. The one his girlfriend buys him before he knows the range.</div>
+      <div class="scent-notes"><span class="note-pill">Bergamot</span><span class="note-pill">Vetiver</span><span class="note-pill">White Musk</span><span class="note-pill">Cardamom</span><span class="note-pill">Cedarwood</span></div>
+      <div class="fragrance-price">Proposed MRP: <strong>&#8377;2,999</strong> &nbsp;&middot;&nbsp; 50ml</div>
+    </div>
+
+    <div class="fragrance-card fc-2">
+      <div class="fragrance-num">02 / The Ease</div>
+      <div class="fragrance-name">Easy Sunday</div>
+      <div class="fragrance-tagline">Eau de Parfum</div>
+      <div class="fragrance-desc">Warm, unhurried, lived-in. The scent for when he is not performing anything. Cedar and sandalwood with a depth that improves over the day: the fragrance equivalent of Sunday linen.<br><br>The warm counterpart to First Impression. Different posture, same man.</div>
+      <div class="scent-notes"><span class="note-pill">Sandalwood</span><span class="note-pill">Cedar</span><span class="note-pill">Amber</span><span class="note-pill">Tobacco Leaf</span><span class="note-pill">Vanilla Smoke</span></div>
+      <div class="fragrance-price">Proposed MRP: <strong>&#8377;3,799</strong> &nbsp;&middot;&nbsp; 75ml</div>
+    </div>
+
+    <div class="fragrance-card fc-3" style="background:var(--white);color:var(--black)">
+      <div class="fragrance-num">03 / The Night</div>
+      <div class="fragrance-name">After Dark</div>
+      <div class="fragrance-tagline">Eau de Parfum Intense</div>
+      <div class="fragrance-desc">Deep, confident, memorable. The fragrance that stays in a room after he leaves. Oud-forward but not traditional: this is oud the way Rare Rabbit does anything, referenced but never literal.<br><br>The premium tier workhorse. The fragrance men explain to other men.</div>
+      <div class="scent-notes"><span class="note-pill">Indian Oud</span><span class="note-pill">Patchouli</span><span class="note-pill">Dark Rose</span><span class="note-pill">Black Pepper</span><span class="note-pill">Benzoin</span></div>
+      <div class="fragrance-price">Proposed MRP: <strong>&#8377;4,499</strong> &nbsp;&middot;&nbsp; 75ml</div>
+    </div>
+
+    <div class="fragrance-card fc-4">
+      <div class="fragrance-num">04 / The Signature</div>
+      <div class="fragrance-name">The Rare One</div>
+      <div class="fragrance-tagline">Extrait de Parfum</div>
+      <div class="fragrance-desc">The halo fragrance. Rare, limited, built with one of India's finest independent perfumers. Not a volume play: a brand equity statement. The bottle that gets noticed on a shelf.<br><br>Caps the collection and defines where the house goes next.</div>
+      <div class="scent-notes"><span class="note-pill">Himalayan Musk</span><span class="note-pill">Aged Vetiver</span><span class="note-pill">Saffron</span><span class="note-pill">Mysore Sandalwood</span><span class="note-pill">Oud Accord</span></div>
+      <div class="fragrance-price">Proposed MRP: <strong>&#8377;6,999</strong> &nbsp;&middot;&nbsp; 50ml</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 04: GTM -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-number">04</div>
+    <div class="section-title-block">
+      <div class="section-label">Go-to-Market</div>
+      <h2 class="section-title">Four phases.<br><em>Built to build momentum.</em></h2>
+    </div>
+  </div>
+  <p class="body-copy">The Rare Rabbit store network is a strong strategic asset that gives a fast and efficient GTM across 200+ stores in 100+ cities.</p>
+  <p class="body-copy">Every fragrance launch is a physical, sensory event. A fragrance experience section bar in every store is a form of activation that will propel the launch and leave a lasting impression on the target audience.</p>
+  <div class="gtm-phases">
+    <div class="gtm-phase phase-1">
+      <div class="phase-label">
+        <div style="font-family:var(--sans);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:8px">Phase One</div>
+        <div class="phase-timeline">Months 1-2</div>
+        <div class="phase-duration">Seed</div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-name">10 flagship stores.<br>Zero paid media.</div>
+        <div class="phase-body">In-store sampling bars only. Flagship stores in Mumbai, Delhi, Bengaluru, Hyderabad, Pune. Earned press and loyalty member exclusives. The plan is to build word of mouth before scaling this. Strategic outcome: deliberate scarcity.</div>
+      </div>
+    </div>
+    <div class="gtm-phase phase-2">
+      <div class="phase-label">
+        <div style="font-family:var(--sans);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:8px">Phase Two</div>
+        <div class="phase-timeline">Months 3-5</div>
+        <div class="phase-duration">Expand</div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-name">50-store rollout.<br>Online launch.</div>
+        <div class="phase-body">A dedicated Rare Atelier page on thehouseofrare.com and partnership with a curated niche fragrance retailer for category credibility: Shoppers Stop, Nykaa Luxe, Sephora. Only exclusive invites and influencer gifting.</div>
+      </div>
+    </div>
+    <div class="gtm-phase phase-3">
+      <div class="phase-label">
+        <div style="font-family:var(--sans);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:8px">Phase Three</div>
+        <div class="phase-timeline">Months 6-9</div>
+        <div class="phase-duration">National</div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-name">Full network.<br>First campaign.</div>
+        <div class="phase-body">Full store network rollout. Launch discovery kits: 3-scent sampler at 499 rupees, reducing entry friction. First integrated campaign extending "Wear Rare" into fragrance. Digital performance across metro Instagram and YouTube.</div>
+      </div>
+    </div>
+    <div class="gtm-phase phase-4">
+      <div class="phase-label">
+        <div style="font-family:var(--sans);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--mid-grey);margin-bottom:8px">Phase Four</div>
+        <div class="phase-timeline">Year 2+</div>
+        <div class="phase-duration">Build</div>
+      </div>
+      <div class="phase-content">
+        <div class="phase-name">Rare Rabbit as<br>India's fragrance house.</div>
+        <div class="phase-body">New fragrance annually. "The Rare One by Rare Atelier" as a limited annual collectible. Travel retail through airport locations. Women's fragrance under Rareism as natural extension. Long-term target: fragrance as 15% of total brand revenue within three years.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05: WHAT I BRING -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-number">05</div>
+    <div class="section-title-block">
+      <div class="section-label">Why Me</div>
+      <h2 class="section-title">What I bring<br><em>to this specific room.</em></h2>
+    </div>
+  </div>
+  <div class="credentials-grid">
+    <div class="cred-item">
+      <span class="cred-icon">&#9672;</span>
+      <div class="cred-title">Brand Strategy &amp; Founder Experience</div>
+      <div class="cred-body">Masters in Business Strategy from Grenoble &Eacute;cole de Management, France. Advanced Certification from MICA. I think simultaneously in brand equity, consumer insight, and unit economics. I know what a 4,500-rupee product needs to feel like, and what justifies that price.</div>
+    </div>
+    <div class="cred-item">
+      <span class="cred-icon">&#9672;</span>
+      <div class="cred-title">European Consumer Instinct</div>
+      <div class="cred-body">France is where fragrance culture is a daily conversation, not a marketing concept. Three years living inside that culture gives me a perspective on how the best fragrance brands think: one that is directly applicable to how Rare Rabbit should position in the premium tier.</div>
+    </div>
+    <div class="cred-item">
+      <span class="cred-icon">&#9672;</span>
+      <div class="cred-title">Premium Indian Positioning</div>
+      <div class="cred-body">Everything I have built is anchored in the same challenge this collection faces: how do you take something deeply Indian and make it feel globally credible? Not by erasing the origin, but by elevating it with precision. That is where the best Indian premium brands live.</div>
+    </div>
+    <div class="cred-item">
+      <span class="cred-icon">&#9672;</span>
+      <div class="cred-title">Sensory Credibility</div>
+      <div class="cred-body">I built iml&eacute;: a craft syrup brand using vetiver, rose, paan, saffron, and ginger as primary flavour identities. All my creative brand decisions are always led by feeling, not by thought. I know what aged vetiver smells like versus fresh-cut. I am a strong advocate of sensory experiences presented through great products, packaging and world class service, all amalgamating towards a world class experience and feeling of class and luxury for the consumer.</div>
+    </div>
+    <div class="cred-item">
+      <span class="cred-icon">&#9672;</span>
+      <div class="cred-title">Storytelling</div>
+      <div class="cred-body">With a background in theatre, membership of Toastmasters International, multiple personality development certifications and five years living in France, I think in narrative first. Fragrance marketing is almost entirely story. The campaign for "After Dark" lives in my head already, and I would genuinely welcome the chance to share it in person.</div>
+    </div>
+    <div class="cred-item">
+      <span class="cred-icon">&#9672;</span>
+      <div class="cred-title">Work Ethic</div>
+      <div class="cred-body">My value system is integrity, commitment, fun and feeling. I feel with heart, think deeply, craft ideas into manifestations and lead them into outcomes that feel simple, desirable and quality. I love innovation, take initiatives and have the courage to deliver greatness.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="closing-label">A Final Thought</div>
+  <h2 class="closing-headline">Rare Rabbit: Premium luxury<br>fashion brand from India,<br><em>for the world.</em></h2>
+  <p style="font-family:var(--sans);font-size:14px;font-weight:300;color:rgba(255,255,255,0.6);max-width:600px;line-height:1.9;margin-bottom:24px">India has always deserved its luxury fashion brand and that is what Rare Rabbit has delivered: a quality Indian fashion brand. My strong belief lies in serving Indians with the best quality premium and luxury Indian made products that they have been starved of for decades.</p>
+  <p style="font-family:var(--sans);font-size:14px;font-weight:300;color:rgba(255,255,255,0.6);max-width:600px;line-height:1.9;margin-bottom:24px">The next step to that, and something that will and must manifest, is Rare Rabbit for the world.</p>
+  <p style="font-family:var(--sans);font-size:14px;font-weight:500;color:rgba(255,255,255,0.9);max-width:600px;line-height:1.9;margin-bottom:48px">I assure you of my commitment towards this dream and would love to be a part of it, building it with the amazing team and leadership at The House of Rare.</p>
+  <div class="closing-contact">
+    <div>
+      <div class="contact-label">Prepared By</div>
+      <div class="contact-value">Vaibhav Sharma<br>vaibhavsharma46@gmail.com<br>+91 98403 97958</div>
+    </div>
+    <div>
+      <div class="contact-label">Background</div>
+      <div class="contact-value">Brand Specialist, 5+ years<br>Grenoble EM, France &middot; MICA</div>
+    </div>
+    <div>
+      <div class="contact-label">Prepared For</div>
+      <div class="contact-value">Nishant Poddar, CMO<br>Rare Rabbit &middot; Alum, IIM Calcutta</div>
+    </div>
+    <div>
+      <div class="contact-label">Date</div>
+      <div class="contact-value">June 2026<br>Confidential</div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--teal, #2E7D72);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+#side-nav {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 200;
+}
+.nav-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.nav-dot:hover, .nav-dot.active { background: #2E7D72; transform: scale(1.5); }
+.nav-dot .dot-label {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #2E7D72;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  font-family: sans-serif;
+}
+.nav-dot:hover .dot-label { opacity: 1; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.fragrance-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+.fragrance-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.09) !important;
+}
+
+.note-pill { transition: all 0.2s ease !important; cursor: default; }
+.note-pill:hover { background: #2E7D72 !important; color: white !important; border-color: #2E7D72 !important; }
+
+.cred-item { transition: border-top-color 0.3s ease, transform 0.2s ease !important; }
+.cred-item:hover { border-top-color: #2E7D72 !important; transform: translateX(4px) !important; }
+
+.gtm-phase { transition: background 0.2s ease, padding-left 0.2s ease !important; }
+.gtm-phase:hover { background: rgba(46,125,114,0.04) !important; padding-left: 8px !important; }
+
+.pull-quote { transition: border-left-width 0.3s ease, padding-left 0.3s ease !important; }
+.pull-quote:hover { border-left-width: 4px !important; padding-left: 31px !important; }
+
+.consumer-card, [style*="border-top:3px solid"] {
+  transition: border-top-color 0.3s ease !important;
+}
+
+.section-number { transition: color 0.4s ease !important; }
+.section:hover .section-number { color: rgba(46,125,114,0.18) !important; }
+
+#scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 40px;
+  height: 40px;
+  background: #0A0A0A;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+  z-index: 200;
+  font-family: sans-serif;
+}
+#scroll-top.visible { opacity: 1; transform: translateY(0); }
+#scroll-top:hover { background: #2E7D72; }
+
+#cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2E7D72;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: multiply;
+  transition: opacity 0.3s ease;
+}
+</style>
+
+<div id="progress-bar"></div>
+<div id="cursor-dot"></div>
+
+<div id="side-nav">
+  <div class="nav-dot active" data-target="sec-cover"><span class="dot-label">Cover</span></div>
+  <div class="nav-dot" data-target="sec-00"><span class="dot-label">Field Notes</span></div>
+  <div class="nav-dot" data-target="sec-01"><span class="dot-label">Why Fragrance</span></div>
+  <div class="nav-dot" data-target="sec-02"><span class="dot-label">The Consumer</span></div>
+  <div class="nav-dot" data-target="sec-03"><span class="dot-label">Rare Atelier</span></div>
+  <div class="nav-dot" data-target="sec-04"><span class="dot-label">Go-to-Market</span></div>
+  <div class="nav-dot" data-target="sec-05"><span class="dot-label">Why Me</span></div>
+  <div class="nav-dot" data-target="sec-closing"><span class="dot-label">Closing</span></div>
+</div>
+
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const secs = document.querySelectorAll('section');
+  const secIds = ['sec-cover','sec-00','sec-01','sec-02','sec-03','sec-04','sec-05','sec-closing'];
+  secs.forEach((s, i) => { if (secIds[i]) s.id = secIds[i]; });
+
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    bar.style.width = Math.min(pct, 100) + '%';
+  }, { passive: true });
+
+  const toReveal = document.querySelectorAll(
+    '.section-header, .body-copy, .consumer-card, .fragrance-card, ' +
+    '.gtm-phase, .cred-item, .pull-quote, .stat-row, .closing-headline, ' +
+    '.closing-contact, .consumer-grid > div, .fragrance-grid'
+  );
+  toReveal.forEach(el => el.classList.add('reveal'));
+
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = Math.random() * 0.1 + 's';
+        e.target.classList.add('visible');
+        revObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+
+  toReveal.forEach(el => revObs.observe(el));
+
+  const dots = document.querySelectorAll('.nav-dot');
+  const navSecs = secIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  const navObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const i = navSecs.indexOf(e.target);
+        dots.forEach((d, j) => d.classList.toggle('active', j === i));
+      }
+    });
+  }, { threshold: 0.25 });
+
+  navSecs.forEach(s => navObs.observe(s));
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      navSecs[i]?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  document.querySelectorAll('.stat-value').forEach(el => {
+    const original = el.textContent.trim();
+    const match = original.match(/[\d.]+/);
+    if (!match) return;
+    const target = parseFloat(match[0]);
+    const pre = original.slice(0, original.indexOf(match[0]));
+    const suf = original.slice(original.indexOf(match[0]) + match[0].length);
+    let counted = false;
+
+    const cObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !counted) {
+          counted = true;
+          let cur = 0;
+          const steps = 50;
+          const inc = target / steps;
+          const timer = setInterval(() => {
+            cur = Math.min(cur + inc, target);
+            const disp = Number.isInteger(target) ? Math.round(cur) : cur.toFixed(2);
+            el.textContent = pre + disp + suf;
+            if (cur >= target) clearInterval(timer);
+          }, 24);
+          cObs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.6 });
+    cObs.observe(el);
+  });
+
+  const btn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 500);
+  }, { passive: true });
+
+  const dot = document.getElementById('cursor-dot');
+  const cover = document.getElementById('sec-cover');
+  if (cover) {
+    cover.addEventListener('mousemove', e => {
+      dot.style.opacity = '0.5';
+      dot.style.left = (e.clientX - 4) + 'px';
+      dot.style.top = (e.clientY - 4) + 'px';
+    });
+    cover.addEventListener('mouseleave', () => { dot.style.opacity = '0'; });
+  }
+
+  document.querySelectorAll('.fragrance-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const n = card.querySelector('.fragrance-num');
+      if (n) { n.style.color = '#2E7D72'; n.style.transition = 'color 0.3s ease'; }
+    });
+    card.addEventListener('mouseleave', () => {
+      const n = card.querySelector('.fragrance-num');
+      if (n) n.style.color = '';
+    });
+  });
+
+});
+</script>
 
 </body>
 </html>
