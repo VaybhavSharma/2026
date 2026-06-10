@@ -3,84 +3,378 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vaibhav Sharma</title>
+  <title>Vaibhav Sharma - Brand Specialist</title>
+  <meta name="description" content="Brand Specialist for Premium Consumer Goods. Founder of imle India. Observe, feel, create." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #141414;
+      --bg2:     #1A1A1C;
+      --bg3:     #222224;
+      --border:  #242426;
+      --border2: #2A2A2C;
+      --gold:    #8E7B52;
+      --gold-lt: #B09A70;
+      --t1:      #F5F5F7;
+      --t2:      #F0F0F2;
+      --t3:      #CCCCCC;
+      --t4:      #AAAAAA;
+      --t5:      #888888;
+      --t6:      #555558;
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --sans:    'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--t3); font-family: var(--sans); font-weight: 300; line-height: 1.6; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: transparent;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 52px;
+      transition: background 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(20,20,20,0.93);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+    }
+    .nav-logo { font-size: 11px; font-weight: 400; color: #fff; letter-spacing: 0.14em; text-transform: uppercase; }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.80); letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-resume {
+      font-size: 10px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 16px; border: 0.5px solid rgba(255,255,255,0.25); border-radius: 20px;
+      color: rgba(255,255,255,0.7); cursor: pointer; transition: color 0.2s, border-color 0.2s;
+      background: transparent; font-family: var(--sans); white-space: nowrap;
+    }
+    .nav-resume:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* HERO */
+    .hero { position: relative; height: 100vh; min-height: 580px; overflow: hidden; background: #0E0E0F; }
+    .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide .slide-bg {
+      position: absolute; inset: 0; background-size: cover; background-position: center top;
+      background-color: transparent; transform: scale(1.03); transition: transform 6s ease;
+    }
+    .hero-slide.active .slide-bg { transform: scale(1); }
+    .hero-slide .slide-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.45) 55%, rgba(10,10,10,0.15) 100%);
+    }
+    .hero-slide.personal .slide-overlay {
+      background: linear-gradient(to right, rgba(12,8,4,0.68) 0%, rgba(12,8,4,0.40) 55%, rgba(12,8,4,0.10) 100%);
+    }
+    .hero-content {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 48px 64px; max-width: 680px;
+    }
+    .hero-tag { font-size: 10px; letter-spacing: 0.14em; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 20px; opacity: 0; transform: translateY(12px); transition: opacity 0.7s 0.2s ease, transform 0.7s 0.2s ease; }
+    .hero-slide.active .hero-tag { opacity: 1; transform: translateY(0); }
+    .hero-name { font-family: var(--serif); font-size: 80px; font-weight: 300; color: #fff; line-height: 0.95; letter-spacing: 0.01em; margin-bottom: 4px; opacity: 0; transform: translateY(16px); transition: opacity 0.8s 0.35s ease, transform 0.8s 0.35s ease; }
+    .hero-slide.active .hero-name { opacity: 1; transform: translateY(0); }
+    .hero-rule { width: 32px; height: 1px; background: var(--gold); margin: 18px 0 20px; opacity: 0; transition: opacity 0.6s 0.55s ease; }
+    .hero-slide.active .hero-rule { opacity: 1; }
+    .hero-sub { font-size: 13px; color: rgba(255,255,255,0.55); letter-spacing: 0.07em; opacity: 0; transform: translateY(10px); transition: opacity 0.7s 0.65s ease, transform 0.7s 0.65s ease; }
+    .hero-slide.active .hero-sub { opacity: 1; transform: translateY(0); }
+    .hero-sub.personal-tag { font-family: var(--serif); font-style: italic; font-size: 16px; letter-spacing: 0.03em; }
+    .hero-controls { position: absolute; bottom: 28px; right: 48px; display: flex; gap: 8px; align-items: center; z-index: 10; }
+    .cdot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: background 0.3s; border: none; padding: 0; }
+    .cdot.active { background: var(--gold); }
+
+    /* MAIN */
+    main { max-width: 1100px; margin: 0 auto; padding: 0 48px 80px; }
+    .sec-label { font-size: 9px; font-weight: 500; color: var(--t5); letter-spacing: 0.14em; text-transform: uppercase; margin: 56px 0 20px; display: flex; align-items: center; gap: 14px; }
+    .sec-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
+    .gold-link { display: inline-block; font-size: 11px; color: var(--gold); letter-spacing: 0.05em; margin-top: 10px; cursor: pointer; transition: color 0.2s; }
+    .gold-link:hover { color: var(--gold-lt); }
+
+    /* IMLE BLOCK */
+    .imle-block { background: var(--bg2); border-radius: 12px; padding: 32px 36px; }
+    .imle-eyebrow { font-size: 9px; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+    .imle-title { font-family: var(--serif); font-size: 36px; font-weight: 300; color: var(--t1); margin-bottom: 4px; }
+    .imle-tagline { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--t5); margin-bottom: 18px; }
+    .imle-desc { font-size: 13px; color: var(--t3); line-height: 1.9; margin-bottom: 24px; max-width: 680px; }
+    .imle-points { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .imle-point { display: flex; gap: 12px; align-items: flex-start; }
+    .imle-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+    .imle-point p { font-size: 13px; color: var(--t4); line-height: 1.65; }
+    .imle-point p strong { color: var(--t2); font-weight: 500; }
+    .imle-media { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 24px; }
+    .media-ph { height: 100px; background: var(--bg3); border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 0.5px solid var(--border2); overflow: hidden; }
+    .media-ph img { width: 100%; height: 100%; object-fit: cover; }
+    .media-ph span { font-size: 9px; color: var(--t6); text-align: center; line-height: 1.6; }
+    .imle-metrics { display: flex; padding-top: 20px; border-top: 0.5px solid var(--border2); align-items: center; }
+    .metric { flex: 1; text-align: center; }
+    .metric-val { font-family: var(--serif); font-size: 26px; font-weight: 300; color: var(--t1); line-height: 1; }
+    .metric-label { font-size: 9px; color: var(--t6); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+    .metric-divider { width: 0.5px; height: 36px; background: var(--border2); }
+
+    /* ASSIGNMENTS */
+    .assignments { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .acard { background: var(--bg2); border-radius: 12px; padding: 22px 24px; }
+    .acard-label { font-size: 9px; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+    .acard-title { font-size: 15px; font-weight: 500; color: var(--t2); margin-bottom: 8px; line-height: 1.3; }
+    .acard-sub { font-size: 12px; color: var(--t4); line-height: 1.7; }
+
+    /* SKILLS */
+    .skills-block { background: var(--bg2); border-radius: 12px; padding: 28px 32px; }
+    .skills-para { font-size: 14px; color: var(--t3); line-height: 1.95; font-weight: 300; margin-bottom: 22px; max-width: 720px; }
+    .skills-para strong { color: var(--t2); font-weight: 500; }
+    .skills-row { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-tag { font-size: 11px; padding: 5px 14px; border-radius: 24px; color: var(--t3); letter-spacing: 0.03em; background: var(--bg3); }
+
+    /* BRANDS THAT MATTER */
+    .btm-block { background: var(--bg2); border-radius: 12px; padding: 28px 32px; }
+    .btm-heading { font-family: var(--serif); font-size: 26px; font-weight: 300; color: var(--t1); margin-bottom: 8px; }
+    .btm-purpose { font-size: 13px; color: var(--t4); line-height: 1.85; margin-bottom: 24px; max-width: 640px; }
+    .btm-article { border-top: 0.5px solid var(--border2); padding-top: 18px; }
+    .btm-art-num { font-size: 9px; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+    .btm-art-title { font-size: 16px; font-weight: 500; color: var(--t2); margin-bottom: 6px; line-height: 1.4; }
+    .btm-art-desc { font-size: 12px; color: var(--t4); line-height: 1.75; margin-bottom: 12px; max-width: 560px; }
+    .btm-more { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--t6); margin-top: 16px; }
+
+    /* WHAT INSPIRES ME */
+    .inspire-block { background: var(--bg2); border-radius: 12px; padding: 28px 32px; }
+    .inspire-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; gap: 20px; }
+    .inspire-title { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--t1); }
+    .instagram-link {
+      display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
+      font-size: 10px; color: var(--t5); letter-spacing: 0.06em; text-transform: uppercase;
+      border: 0.5px solid var(--border2); border-radius: 20px; padding: 6px 14px;
+      transition: color 0.2s, border-color 0.2s; margin-top: 6px;
+    }
+    .instagram-link:hover { color: var(--gold); border-color: var(--gold); }
+    .inspire-sub { font-size: 13px; color: var(--t4); line-height: 1.85; margin-bottom: 22px; max-width: 640px; }
+    .inspire-cats { display: flex; flex-wrap: wrap; gap: 7px; }
+    .cat-tag { font-size: 11px; padding: 5px 14px; border-radius: 24px; color: var(--t3); background: var(--bg3); cursor: pointer; transition: color 0.2s; }
+    .cat-tag:hover { color: var(--gold); }
+
+    /* FOOTER */
+    footer { border-top: 0.5px solid var(--border); padding: 22px 48px; display: flex; align-items: center; justify-content: center; }
+    .footer-links { display: flex; gap: 28px; align-items: center; }
+    .footer-links a { font-size: 11px; color: var(--t5); letter-spacing: 0.06em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-sep { color: var(--border2); font-size: 13px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { gap: 14px; }
+      .hero { height: 100svh; }
+      .hero-content { padding: 0 20px 56px; }
+      .hero-name { font-size: 52px; }
+      .hero-controls { right: 20px; }
+      main { padding: 0 20px 60px; }
+      .imle-media { grid-template-columns: repeat(2,1fr); }
+      .assignments { grid-template-columns: 1fr; }
+      footer { padding: 20px; flex-wrap: wrap; gap: 12px; }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <nav>
-      <a href="index.html" class="nav-logo">VS</a>
+  <!-- NAV -->
+  <nav id="main-nav">
+    <span class="nav-logo">Vaibhav Sharma</span>
+    <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="mailto:vaibhav@imle.in">Contact</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#brings">What I Can Do</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-    </nav>
-  </header>
+      <a href="/resume.pdf" target="_blank"><button class="nav-resume">Resume</button></a>
+    </div>
+  </nav>
 
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-slide active" id="slide-0">
+      <div class="slide-bg" style="background-image: url('hero-professional.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-tag">Brand Specialist · Premium Consumer Goods</p>
+        <h1 class="hero-name">Vaibhav<br>Sharma</h1>
+        <div class="hero-rule"></div>
+        <p class="hero-sub">Observe, feel, create.</p>
+      </div>
+    </div>
+    <div class="hero-slide personal" id="slide-1">
+      <div class="slide-bg" style="background-image: url('hero-personal.jpg');"></div>
+      <div class="slide-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-tag">Thinker · Explorer · Creator</p>
+        <h1 class="hero-name">Vaibhav<br>Sharma</h1>
+        <div class="hero-rule"></div>
+        <p class="hero-sub personal-tag">Between the Himalayas and the Seine - still figuring it out.</p>
+      </div>
+    </div>
+    <div class="hero-controls">
+      <button class="cdot active" onclick="goSlide(0)"></button>
+      <button class="cdot" onclick="goSlide(1)"></button>
+    </div>
+  </section>
+
+  <!-- MAIN -->
   <main>
 
-    <section class="hero">
-      <div class="hero-inner">
-        <p class="hero-eyebrow">Vaibhav Sharma</p>
-        <h1 class="hero-headline">Brand Specialist.<br><em>Founder. Storyteller.</em></h1>
-        <p class="hero-sub">Building brands that carry meaning — rooted in culture, shaped by craft.</p>
+    <!-- FEATURED WORK -->
+    <div class="sec-label" id="work">Featured Work</div>
+    <div class="imle-block">
+      <p class="imle-eyebrow">Brand Building · Founded 2023 · Ahmedabad, India</p>
+      <h2 class="imle-title">imle India</h2>
+      <p class="imle-tagline">India-inspired premium aromatic syrups - Indian in soul, global in class.</p>
+      <p class="imle-desc">imle began as a belief that India's flavours deserved world-class presentation. Built with zero external funding, imle is a premium craft syrups brand designed for the modern cocktail and mocktail culture - rooted in heritage, crafted for the contemporary palate.</p>
+      <div class="imle-points">
+        <div class="imle-point"><div class="imle-dot"></div><p><strong>Brand built end-to-end</strong> - product development, brand identity, packaging, tone of voice, vendor management, compliance and distribution. Entirely self-funded, no external capital.</p></div>
+        <div class="imle-point"><div class="imle-dot"></div><p><strong>Rs 7L+ in revenue</strong> within 2 years via Amazon India, D2C, modern trade, and gifting - zero external funding, minimal customer acquisition cost.</p></div>
+        <div class="imle-point"><div class="imle-dot"></div><p><strong>GTM across channels</strong> - Blinkit onboarding, cafe partnerships (Kitabi Aangan), FMCG retail in Ahmedabad, corporate and wedding gifting generating Rs 3L+ independently.</p></div>
+        <div class="imle-point"><div class="imle-dot"></div><p><strong>Strategic repositioning</strong> - from traditional sharbats to premium aromatic craft syrups targeting urban Indian professionals, 25 to 45.</p></div>
+        <div class="imle-point"><div class="imle-dot"></div><p><strong>Meta campaigns</strong> across 5 metro cities - achieved CPC of Rs 0.7 against industry average of Rs 3+, driving 10,000+ website visits in under 20 days at Rs 100 ad spend per SKU across 5 SKUs.</p></div>
       </div>
-    </section>
-
-    <section class="pillars">
-      <div class="container">
-        <p class="section-label">Work &amp; World</p>
-        <div class="pillar-grid">
-
-          <a href="https://imle.in" target="_blank" rel="noopener" class="pillar-card">
-            <span class="pillar-index">01</span>
-            <h2 class="pillar-title">imlé India</h2>
-            <p class="pillar-desc">India's first premium aromatic syrup brand. Built from scratch — flavour, identity, story and all.</p>
-            <span class="pillar-link">Explore imlé ↗</span>
-          </a>
-
-          <a href="brands.html" class="pillar-card">
-            <span class="pillar-index">02</span>
-            <h2 class="pillar-title">Brands That Matter</h2>
-            <p class="pillar-desc">Brand strategy and identity work for founders who want their business to feel like something real.</p>
-            <span class="pillar-link">See the work →</span>
-          </a>
-
-          <a href="nachiketa.html" class="pillar-card">
-            <span class="pillar-index">03</span>
-            <h2 class="pillar-title">Nachiketa Explores</h2>
-            <p class="pillar-desc">Wandering the Himalayas, listening to Hindustani ragas, finding stories in the quiet places.</p>
-            <span class="pillar-link">Read more →</span>
-          </a>
-
-        </div>
+      <div class="imle-media">
+        <div class="media-ph"><span>Product photo</span></div>
+        <div class="media-ph"><span>Packaging</span></div>
+        <div class="media-ph"><span>Cafe setup</span></div>
+        <div class="media-ph"><span>Campaign visual</span></div>
       </div>
-    </section>
-
-    <section class="closing">
-      <div class="container closing-inner">
-        <blockquote>
-          "I think in stories, build with feeling,<br>and believe in quiet confidence over loud noise."
-        </blockquote>
-        <a href="about.html" class="cta-link">More about me →</a>
+      <div class="imle-metrics">
+        <div class="metric"><div class="metric-val">Rs 7L+</div><div class="metric-label">Revenue</div></div>
+        <div class="metric-divider"></div>
+        <div class="metric"><div class="metric-val">5</div><div class="metric-label">Flavours</div></div>
+        <div class="metric-divider"></div>
+        <div class="metric"><div class="metric-val">20</div><div class="metric-label">SKUs</div></div>
+        <div class="metric-divider"></div>
+        <div class="metric"><div class="metric-val">Zero</div><div class="metric-label">External Funding</div></div>
       </div>
-    </section>
+    </div>
+
+    <!-- BRAND ASSIGNMENTS -->
+    <div class="sec-label" id="assignments">Brand Assignments</div>
+    <div class="assignments">
+      <div class="acard">
+        <p class="acard-label">Brand Strategy</p>
+        <h3 class="acard-title">Rare Rabbit: Case for Fragrance</h3>
+        <p class="acard-sub">Fragrance category entry strategy for a Rs 500Cr premium lifestyle brand - category analysis, in-store study, new product and category conceptualisation, GTM, and strategic planning.</p>
+        <a href="https://vaybhavsharma.com/rare-rabbit" target="_blank" class="gold-link">View assignment →</a>
+      </div>
+      <div class="acard">
+        <p class="acard-label">Brand Campaign</p>
+        <h3 class="acard-title">&Done - Brand Assignment</h3>
+        <p class="acard-sub">Full campaign concept for the Take Control range, CAC reduction plan, pricing intervention analysis, and Meta ad recommendations.</p>
+        <a href="and-done.html" class="gold-link">View assignment →</a>
+      </div>
+    </div>
+
+    <!-- WHAT I BRING -->
+    <div class="sec-label" id="brings">What I Bring to the Table</div>
+    <div class="skills-block">
+      <p class="skills-para">I lead brands in the <strong>premium lifestyle and consumer goods</strong> space - from the earliest idea to the shelf and beyond. That means owning <strong>new product development</strong>, building brand identity and packaging from scratch, crafting <strong>go-to-market and market entry strategy</strong>, running campaigns, and managing the full brand P&L. I work across the brand-building stack: conceptualisation, positioning, launch, distribution, and long-term brand management. My sharpest edge is in categories where product, aesthetics, and emotion intersect - where getting the brand right matters as much as getting the numbers right.</p>
+      <div class="skills-row">
+        <span class="skill-tag">Experiential Marketing</span>
+        <span class="skill-tag">Brand Strategy</span>
+        <span class="skill-tag">Brand Positioning</span>
+        <span class="skill-tag">Packaging</span>
+        <span class="skill-tag">Storytelling</span>
+        <span class="skill-tag">Campaign Planning</span>
+        <span class="skill-tag">Copywriting</span>
+        <span class="skill-tag">Digital Marketing</span>
+        <span class="skill-tag">D2C</span>
+        <span class="skill-tag">Amazon Seller Central</span>
+        <span class="skill-tag">Meta Ads</span>
+        <span class="skill-tag">Market Research</span>
+        <span class="skill-tag">Pricing Strategy</span>
+        <span class="skill-tag">GTM</span>
+        <span class="skill-tag">PMF Validation</span>
+        <span class="skill-tag">CRM</span>
+        <span class="skill-tag">Content Strategy</span>
+        <span class="skill-tag">Social Media Marketing</span>
+        <span class="skill-tag">Adobe Suite</span>
+      </div>
+    </div>
+
+    <!-- BRANDS THAT MATTER -->
+    <div class="sec-label" id="btm">Brands That Matter</div>
+    <div class="btm-block">
+      <h2 class="btm-heading">Brands That Matter</h2>
+      <p class="btm-purpose">When we pick a brand, we are picking a story - one that we live, experience and share with the people we love.<br><br>Some brands affect us in ways that make us feel something. Something that makes us smile, or laugh or giggle or even cry. Their products are part of our childhood memories, our life across homes and borders - and they are as much with us as our families and friends.<br><br>Brands That Matter is my deep dive into those brands - what made them, what broke them, and how they made us love them.</p>
+      <div class="btm-article">
+        <p class="btm-art-num">No. 01</p>
+        <h3 class="btm-art-title">Cadbury - How one brand became India's emotional currency</h3>
+        <p class="btm-art-desc">From a British import to the taste of every Indian celebration. The story of five pivots, one crisis, and a brand that never stopped earning trust.</p>
+        <a href="#" class="gold-link">Read on Substack →</a>
+      </div>
+      <p class="btm-more">More coming soon.</p>
+    </div>
+
+    <!-- WHAT INSPIRES ME -->
+    <div class="sec-label" id="inspires">What Inspires Me</div>
+    <div class="inspire-block">
+      <div class="inspire-header">
+        <h2 class="inspire-title">The world that shapes my thinking</h2>
+        <a href="https://www.instagram.com/vaybhavsharma" target="_blank" class="instagram-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @vaybhavsharma
+        </a>
+      </div>
+      <p class="inspire-sub">Between the lanes of Paris and the valleys of the Himalayas, my heart sings for finding truth in life through real experiences, courageous ambitions, exciting actions and togetherness with family and friends. I grew up in India and was given a life of love and privilege by my parents. Then came a turning point - France for my masters showed me what life can be when lived with beauty, class and a slowness that comforts.<br><br>From there to dreaming of taking Indian products to the world, my heart has taken me into Hindustani classical singing, theatre acting, exploring India, learning spirituality and understanding life through experiences. I aim to build a life surrounded by amazing experiences, service to people and happiness doing what I love.<br><br>Explore my world on Instagram - <a href="https://www.instagram.com/vaybhavsharma" target="_blank" style="color:var(--gold);">@vaybhavsharma</a></p>
+      <div class="inspire-cats">
+        <span class="cat-tag">India &amp; The World</span>
+        <span class="cat-tag">Building Bharat</span>
+        <span class="cat-tag">Romance &amp; Love</span>
+        <span class="cat-tag">Cosmos Curiosity</span>
+        <span class="cat-tag">Spiritual</span>
+        <span class="cat-tag">Nature &amp; Life</span>
+        <span class="cat-tag">Self Discovery</span>
+        <span class="cat-tag">Marketing Observations</span>
+        <span class="cat-tag">Book Excerpts</span>
+        <span class="cat-tag">Sangeet</span>
+        <span class="cat-tag">Travels</span>
+        <span class="cat-tag">Random Musings</span>
+      </div>
+    </div>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 Vaibhav Sharma · Ahmedabad</p>
-      <ul class="footer-links">
-        <li><a href="mailto:vaibhav@imle.in">Email</a></li>
-        <li><a href="https://linkedin.com/in/vaybhavsharma" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-links">
+      <a href="mailto:vaibhavsharma46@gmail.com">vaibhavsharma46@gmail.com</a>
+      <span class="footer-sep">·</span>
+      <a href="tel:+919840397958">+91-9840397958</a>
+      <span class="footer-sep">·</span>
+      <a href="https://linkedin.com/in/vaibhavsharma" target="_blank">LinkedIn</a>
+      <span class="footer-sep">·</span>
+      <a href="/resume.pdf" target="_blank">Resume PDF</a>
     </div>
   </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+    let current = 0;
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.cdot');
+    function goSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = n;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    setInterval(() => goSlide((current + 1) % slides.length), 7000);
+  </script>
 
 </body>
 </html>
