@@ -180,17 +180,106 @@
     .footer-sep { color: var(--border2); font-size: 13px; }
 
     /* RESPONSIVE */
+    /* Hamburger button */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.8);
+      transition: all 0.3s;
+    }
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 52px;
+      left: 0;
+      right: 0;
+      background: rgba(20,20,20,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      padding: 20px 24px;
+      flex-direction: column;
+      gap: 18px;
+      z-index: 99;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-mobile-menu a:hover { color: var(--gold); }
+    .nav-mobile-resume {
+      font-size: 11px;
+      padding: 8px 18px;
+      border: 0.5px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      color: rgba(255,255,255,0.7);
+      background: transparent;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: fit-content;
+      font-family: var(--sans);
+    }
+
     @media (max-width: 768px) {
+      /* Nav */
       nav { padding: 0 20px; }
-      .nav-links { gap: 14px; }
+      .nav-right { display: none; }
+      .nav-hamburger { display: flex; }
+
+      /* Hero */
       .hero { height: 100svh; }
-      .hero-content { padding: 0 20px 56px; }
-      .hero-name { font-size: 52px; }
-      .hero-controls { right: 20px; }
+      .hero-content { padding: 0 24px 56px; max-width: 100%; }
+      .hero-name { font-size: 54px; }
+      .hero-controls { right: 20px; bottom: 20px; }
+      .arrow { font-size: 20px; }
+
+      /* Main */
       main { padding: 0 20px 60px; }
+      .sec-label { margin: 36px 0 16px; }
+
+      /* imlé block */
+      .imle-block { padding: 22px 18px; }
+      .imle-title { font-size: 28px; }
       .imle-media { grid-template-columns: repeat(2,1fr); }
+      .imle-metrics { flex-wrap: wrap; gap: 0; }
+      .metric { flex: 50%; padding: 12px 0; }
+      .metric-divider { display: none; }
+
+      /* Assignments */
       .assignments { grid-template-columns: 1fr; }
-      footer { padding: 20px; flex-wrap: wrap; gap: 12px; }
+      .acard { padding: 18px; }
+
+      /* Skills */
+      .skills-block { padding: 20px 18px; }
+      .skills-para { font-size: 14px; }
+
+      /* BTM */
+      .btm-block { padding: 20px 18px; }
+      .btm-heading { font-size: 22px; }
+
+      /* Inspires */
+      .inspire-block { padding: 20px 18px; }
+      .inspire-title { font-size: 22px; }
+      .inspire-header { flex-direction: column; gap: 10px; }
+      .instagram-link { align-self: flex-start; }
+
+      /* Footer */
+      footer { padding: 20px; flex-direction: column; gap: 10px; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
     }
   
     /* Lightbox */
@@ -214,7 +303,16 @@
       </ul>
       <a href="/resume.pdf" target="_blank"><button class="nav-resume">Resume</button></a>
     </div>
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-mobile-menu" id="mobile-menu">
+    <a href="#work" onclick="toggleMenu()">Work</a>
+    <a href="#brings" onclick="toggleMenu()">What I Can Do</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="/resume.pdf" target="_blank"><button class="nav-mobile-resume">Resume</button></a>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -383,6 +481,9 @@
   </footer>
 
   <script>
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 60);
